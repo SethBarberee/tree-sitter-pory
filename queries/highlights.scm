@@ -13,9 +13,10 @@
 (text_block_type) @type
 (const_type) @type
 
-(string) @string
+(func
+  func_name: (identifier) @type)
 
-(func) @type
+(string) @string
 
 (number) @constant
 
