@@ -1,0 +1,108 @@
+=================================================
+basic comment
+=================================================
+
+# hello
+
+------------------------------------------------
+
+(source_file
+  (comment))
+
+
+=================================================
+basic mart script
+=================================================
+
+mart MyMart {
+    ITEM_POTION
+    ITEM_POKEBALL
+}
+
+------------------------------------------------
+
+(source_file
+    (block
+    (block_type)
+    (identifier)
+    (identifier)
+    (identifier)))
+
+=================================================
+two block script
+=================================================
+
+mart MyMart {
+    ITEM_POTION
+    ITEM_POKEBALL
+}
+
+mart MyMart {
+    ITEM_POTION
+    ITEM_POKEBALL
+}
+
+------------------------------------------------
+
+(source_file
+    (block
+    (block_type)
+    (identifier)
+    (identifier)
+    (identifier))
+    (block
+    (block_type)
+    (identifier)
+    (identifier)
+    (identifier)))
+
+=================================================
+basic text script
+=================================================
+
+text test {
+    "hi"
+}
+
+------------------------------------------------
+
+(source_file
+    (text_block
+    (text_block_type)
+    (identifier)
+    (string
+        (identifier))))
+
+=================================================
+basic text script w/ func
+=================================================
+
+text test {
+    format("hi")
+}
+
+------------------------------------------------
+
+(source_file
+    (text_block
+    (text_block_type)
+    (identifier)
+    (func
+        (identifier)
+        (string
+            (identifier)))))
+
+=================================================
+basic const
+=================================================
+
+const PROF_BIRCH_ID = 3
+
+------------------------------------------------
+
+(source_file
+    (const_block
+    (const_type)
+    (identifier)
+    (number)))
+
