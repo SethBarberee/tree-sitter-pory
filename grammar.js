@@ -41,8 +41,14 @@ module.exports = grammar({
     block_type: ($) => choice(/mapscripts/, /script/, /movement/, /mart/),
 
     func: ($) =>
-      seq($.identifier, "(", choice($.identifier, $.string, $.number), ")"),
+      seq(
+        field("func_name", $.identifier),
+        "(",
+        choice($.identifier, $.string, $.number),
+        ")"
+      ),
 
+    // TODO: better handle punctation in strings such as ! and others
     string: ($) => seq(/"/, repeat($.identifier), /"/),
 
     const_block: ($) =>

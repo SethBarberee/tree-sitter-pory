@@ -12,9 +12,9 @@
 #define ALIAS_COUNT 0
 #define TOKEN_COUNT 16
 #define EXTERNAL_TOKEN_COUNT 0
-#define FIELD_COUNT 1
+#define FIELD_COUNT 2
 #define MAX_ALIAS_SEQUENCE_LENGTH 5
-#define PRODUCTION_ID_COUNT 2
+#define PRODUCTION_ID_COUNT 3
 
 enum {
   sym_identifier = 1,
@@ -225,20 +225,25 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
 
 enum {
   field_block_name = 1,
+  field_func_name = 2,
 };
 
 static const char * const ts_field_names[] = {
   [0] = NULL,
   [field_block_name] = "block_name",
+  [field_func_name] = "func_name",
 };
 
 static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
   [1] = {.index = 0, .length = 1},
+  [2] = {.index = 1, .length = 1},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
   [0] =
     {field_block_name, 1},
+  [1] =
+    {field_func_name, 0},
 };
 
 static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE_LENGTH] = {
@@ -1008,7 +1013,7 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [106] = {.entry = {.count = 1, .reusable = true}}, SHIFT(19),
   [108] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_string_repeat1, 2), SHIFT_REPEAT(23),
   [111] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_string_repeat1, 2),
-  [113] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_func, 4),
+  [113] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_func, 4, .production_id = 2),
   [115] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_block_type, 1),
   [117] = {.entry = {.count = 1, .reusable = true}}, SHIFT(15),
   [119] = {.entry = {.count = 1, .reusable = true}}, SHIFT(5),
