@@ -61,7 +61,14 @@ module.exports = grammar({
 
     const_type: ($) => /const/,
 
-    comment: ($) => token(seq("#", /(\\(.|\r?\n)|[^\\\n])*/)),
+    comment: ($) =>
+      token(
+        choice(
+          seq("//", /(\\(.|\r?\n)|[^\\\n])*/),
+          seq("#", /(\\(.|\r?\n)|[^\\\n])*/)
+        )
+      ),
+
     number: ($) => token(choice(/\d+/, /0[xX][0-9a-fA-F]+/)),
     identifier: ($) => /[a-zA-Z_]\w*/,
   },

@@ -1,0 +1,15 @@
+# hello
+# <- comment
+
+const BIRCH_ID = 3
+# <- type
+#     ^ field
+#                ^ constant
+
+script myscript {
+# <- type
+#      ^ field
+
+    msgbox("test")
+#          ^ string
+}
