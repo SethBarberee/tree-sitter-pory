@@ -1,6 +1,3 @@
-# hello
-# <- comment
-
 const BIRCH_ID = 3
 # <- type
 #     ^ field
